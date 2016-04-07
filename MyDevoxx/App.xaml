@@ -1,0 +1,162 @@
+<Application 
+    x:Class="MyDevoxx.App" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:MyDevoxx" 
+    xmlns:primitives="using:Windows.UI.Xaml.Controls.Primitives" 
+    xmlns:vm="using:MyDevoxx.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    d1p1:Ignorable="d"
+    xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+
+            <FontFamily x:Key="RobotoRegular">
+                /Assets/Fonts/Roboto-Regular.ttf#Roboto
+            </FontFamily>
+            <FontFamily x:Key="RobotoBold">
+                /Assets/Fonts/Roboto-Bold.ttf#Roboto
+            </FontFamily>
+            <FontFamily x:Key="RobotoMedium">
+                /Assets/Fonts/Roboto-Medium.ttf#Roboto
+            </FontFamily>
+            <FontFamily x:Key="Pirulen">
+                /Assets/Fonts/pirulen_rg.ttf#Pirulen
+            </FontFamily>
+            <Brush x:Key="DevoxxBackgroundBrush">#F3B62A</Brush>
+            <Brush x:Key="DevoxxBackgroundShadowBrush">#CF9D32</Brush>
+            <Brush x:Key="DevoxxFontGrayBrush">#CC000000</Brush>
+
+            <Style TargetType="Pivot">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Foreground" Value="{ThemeResource PhoneForegroundBrush}" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <Grid />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Pivot">
+                            <Grid x:Name="RootElement" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="Orientation">
+                                        <VisualState x:Name="Portrait">
+                                        </VisualState>
+                                        <VisualState x:Name="Landscape">
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ScrollViewer x:Name="ScrollViewer" Margin="{TemplateBinding Padding}" HorizontalSnapPointsType="MandatorySingle" HorizontalSnapPointsAlignment="Center" HorizontalScrollBarVisibility="Hidden" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" VerticalSnapPointsType="None" VerticalContentAlignment="Stretch" ZoomMode="Disabled" Template="{StaticResource ScrollViewerScrollBarlessTemplate}">
+                                    <primitives:PivotPanel x:Name="Panel" VerticalAlignment="Stretch">
+                                        <primitives:PivotHeaderPanel x:Name="Header" Background="{StaticResource DevoxxBackgroundBrush}">
+                                            <primitives:PivotHeaderPanel.RenderTransform>
+                                                <CompositeTransform x:Name="HeaderTranslateTransform" TranslateX="0" />
+                                            </primitives:PivotHeaderPanel.RenderTransform>
+                                        </primitives:PivotHeaderPanel>
+                                        <ItemsPresenter x:Name="PivotItemPresenter">
+                                            <ItemsPresenter.RenderTransform>
+                                                <TranslateTransform x:Name="ItemsPresenterTranslateTransform" X="0" />
+                                            </ItemsPresenter.RenderTransform>
+                                        </ItemsPresenter>
+                                    </primitives:PivotPanel>
+                                </ScrollViewer>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="PivotItem">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="PivotItem">
+                            <Grid Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="Pivot">
+                                        <VisualState x:Name="Right" />
+                                        <VisualState x:Name="Left" />
+                                        <VisualState x:Name="Center" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="primitives:PivotHeaderItem">
+                <Setter Property="FontFamily" Value="/Assets/fonts/Roboto-Regular.ttf#Roboto" />
+                <Setter Property="FontSize" Value="15" />
+                <!--<Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />-->
+                <!--<Setter Property="FontWeight" Value="Bold" />-->
+                <Setter Property="CharacterSpacing" Value="{ThemeResource PivotHeaderItemCharacterSpacing}" />
+                <Setter Property="Background" Value="{ThemeResource PivotHeaderBackgroundUnselectedBrush}" />
+                <!--<Setter Property="Foreground" Value="{ThemeResource PivotHeaderForegroundUnselectedBrush}" />-->
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Margin" Value="5,0" />
+                <Setter Property="Padding" Value="{ThemeResource PivotHeaderItemPadding}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="primitives:PivotHeaderItem">
+                            <Grid x:Name="Grid">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="SelectionStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition From="Unselected" To="UnselectedLocked" GeneratedDuration="0:0:0.33" />
+                                            <VisualTransition From="UnselectedLocked" To="Unselected" GeneratedDuration="0:0:0.33" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Unselected" />
+                                        <VisualState x:Name="UnselectedLocked">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="{ThemeResource PhonePivotLockedTranslation}" Storyboard.TargetProperty="X" Storyboard.TargetName="ContentPresenterTranslateTransform" />
+                                                <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ContentPresenter" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Grid">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource PivotHeaderBackgroundSelectedBrush}" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="HeaderBorder">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="HeaderBorder" BorderThickness="0,0,0,2" BorderBrush="Transparent">
+                                    <ContentPresenter x:Name="ContentPresenter" 
+                                                      Content="{TemplateBinding Content}" 
+                                                      ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      MinWidth="100" MinHeight="20" 
+                                                      VerticalAlignment="Stretch">
+                                        <ContentPresenter.RenderTransform>
+                                            <TranslateTransform x:Name="ContentPresenterTranslateTransform" />
+                                        </ContentPresenter.RenderTransform>
+                                    </ContentPresenter>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

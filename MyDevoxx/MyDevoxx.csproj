@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B62FE8C6-6B6B-4B16-B183-666DB5134C1D}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyDevoxx</RootNamespace>
+    <AssemblyName>MyDevoxx</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\3dots.png" />
+    <Content Include="Assets\close.png" />
+    <Content Include="Assets\DevoxxLogo.png" />
+    <Content Include="Assets\filter_empty.png" />
+    <Content Include="Assets\filter_filled.png" />
+    <Content Include="Assets\format.png" />
+    <Content Include="Assets\clock.png" />
+    <Content Include="Assets\globe_white.png" />
+    <Content Include="Assets\arrow.left.png" />
+    <Content Include="Assets\AppIcons\ic_launcher_hdpi.png" />
+    <Content Include="Assets\AppIcons\ic_launcher_mdpi.png" />
+    <Content Include="Assets\AppIcons\ic_launcher_xhdpi.png" />
+    <Content Include="Assets\AppIcons\ic_launcher_xxhdpi.png" />
+    <Content Include="Assets\AppIcons\ic_launcher_xxxhdpi.png" />
+    <Content Include="Assets\cup.png" />
+    <Content Include="Assets\devoxx.png" />
+    <Content Include="Assets\devoxx_white.png" />
+    <Content Include="Assets\FallbackData\people.png" />
+    <Content Include="Assets\FallbackData\Background.jpg" />
+    <Content Include="Assets\FallbackData\SelectorConference.png" />
+    <Content Include="Assets\Fonts\pirulen_rg.ttf" />
+    <Content Include="Assets\Fonts\Roboto-Regular.ttf" />
+    <Content Include="Assets\Fonts\Roboto-Medium.ttf" />
+    <Content Include="Assets\Fonts\Roboto-Bold.ttf" />
+    <Content Include="Assets\FallbackData\cfp.json" />
+    <Content Include="Assets\Voting\default.png" />
+    <Content Include="Assets\Voting\thee.png" />
+    <Content Include="Assets\Voting\vodka.png" />
+    <Content Include="Assets\Voting\wine.png" />
+    <Content Include="Assets\Voting\beer.png" />
+    <Content Include="Assets\Voting\beers.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\View\NegBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\Model\ConferenceConverter.cs" />
+    <Compile Include="Converter\Model\EventConverter.cs" />
+    <Compile Include="Converter\View\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\View\BorderColorConverter.cs" />
+    <Compile Include="Converter\View\EventDateTimeConverter.cs" />
+    <Compile Include="Converter\View\EventStarredToImageConverter.cs" />
+    <Compile Include="Converter\View\EventTalkStarConverter.cs" />
+    <Compile Include="Converter\Model\FloorConverter.cs" />
+    <Compile Include="Converter\View\ImageConverter.cs" />
+    <Compile Include="Converter\View\ObjectToVisibilityConverter.cs" />
+    <Compile Include="Converter\View\SelectorViewDaysLeftConverter.cs" />
+    <Compile Include="Converter\View\SelectorViewDateConverter.cs" />
+    <Compile Include="Converter\View\TalkCountConverter.cs" />
+    <Compile Include="Converter\View\TrackCountConverter.cs" />
+    <Compile Include="Converter\Model\SpeakerConverter.cs" />
+    <Compile Include="Converter\Model\TrackListConverter.cs" />
+    <Compile Include="Converter\View\EventToSpeakerListConverter.cs" />
+    <Compile Include="Converter\View\VotingOpacityConverter.cs" />
+    <Compile Include="Model\Conference.cs" />
+    <Compile Include="Model\ETag.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\EventType.cs" />
+    <Compile Include="Model\Floor.cs" />
+    <Compile Include="Model\Note.cs" />
+    <Compile Include="Model\Speaker.cs" />
+    <Compile Include="Model\Track.cs" />
+    <Compile Include="Model\Vote.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\IDataService.cs" />
+    <Compile Include="Services\IRestService.cs" />
+    <Compile Include="Services\ITwitterService.cs" />
+    <Compile Include="Services\IVotingService.cs" />
+    <Compile Include="Services\RestModel\AcceptedTalk.cs" />
+    <Compile Include="Services\RestModel\Break.cs" />
+    <Compile Include="Services\RestModel\Floor.cs" />
+    <Compile Include="Services\RestModel\CFP.cs" />
+    <Compile Include="Services\RestModel\Link.cs" />
+    <Compile Include="Services\RestModel\Room.cs" />
+    <Compile Include="Services\RestModel\Schedule.cs" />
+    <Compile Include="Services\RestModel\Slot.cs" />
+    <Compile Include="Services\RestModel\Speaker.cs" />
+    <Compile Include="Services\RestModel\SpeakerSimple.cs" />
+    <Compile Include="Services\RestModel\Talk.cs" />
+    <Compile Include="Services\RestModel\Track.cs" />
+    <Compile Include="Services\RestModel\TrackList.cs" />
+    <Compile Include="Services\RestModel\Voting\Categories.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteBasic.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteReviews.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteDetail.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteMessage.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteResult.cs" />
+    <Compile Include="Services\RestModel\Voting\VoteResults.cs" />
+    <Compile Include="Services\RestService.cs" />
+    <Compile Include="Services\TwitterService.cs" />
+    <Compile Include="Services\VotingService.cs" />
+    <Compile Include="UserControls\EventBreakControl.xaml.cs">
+      <DependentUpon>EventBreakControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EventTalkControl.xaml.cs">
+      <DependentUpon>EventTalkControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Header.xaml.cs">
+      <DependentUpon>Header.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NavigationBar.xaml.cs">
+      <DependentUpon>NavigationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TemplateSelector.cs" />
+    <Compile Include="UserControls\VotingControl.xaml.cs">
+      <DependentUpon>VotingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\Message.cs" />
+    <Compile Include="Utils\MessageType.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\ConferenceSelectorViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\SpeakerDetailsViewModel.cs" />
+    <Compile Include="ViewModel\SpeakersViewModel.cs" />
+    <Compile Include="ViewModel\TalkDetailsViewModel.cs" />
+    <Compile Include="ViewModel\TracksViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\VotingResultViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConferenceSelectorView.xaml.cs">
+      <DependentUpon>ConferenceSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\View\DecimalConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\CameraCaptureControl.xaml.cs">
+      <DependentUpon>CameraCaptureControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConferenceSelector.xaml.cs">
+      <DependentUpon>ConferenceSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
+    <Compile Include="ViewModel\FilterItem.cs" />
+    <Compile Include="Views\CreditsView.xaml.cs">
+      <DependentUpon>CreditsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapPivotHeaderTemplateSelector.cs" />
+    <Compile Include="Views\MapPivotTemplateSelector.cs" />
+    <Compile Include="Views\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MapViewModel.cs" />
+    <Compile Include="Views\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScheduleListTemplateSelector.cs" />
+    <Compile Include="Views\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeakerDetailsView.xaml.cs">
+      <DependentUpon>SpeakerDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeakersView.xaml.cs">
+      <DependentUpon>SpeakersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TalkDetailsView.xaml.cs">
+      <DependentUpon>TalkDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TracksView.xaml.cs">
+      <DependentUpon>TracksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VotingResultView.xaml.cs">
+      <DependentUpon>VotingResultView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="UserControls\EventBreakControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\EventTalkControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VotingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConferenceSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CameraCaptureControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ConferenceSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreditsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeakerDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeakersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TalkDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TracksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VotingResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>BehaviorsXamlSDKManaged</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.WP81, Version=3.11.1">
+      <Name>SQLite for Windows Phone 8.1 %28SQLite.WP81, Version=3.11.1%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\globe.png" />
+    <Content Include="Assets\heart_black_empty.png" />
+    <Content Include="Assets\heart_black_filled.png" />
+    <Content Include="Assets\heart_empty.png" />
+    <Content Include="Assets\heart_filled.png" />
+    <None Include="Assets\IconsTemp\ic_check_box_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_check_box_outline_blank_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_directions_black_18px.svg" />
+    <None Include="Assets\IconsTemp\ic_directions_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_directions_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_event_black_48px.svg" />
+    <None Include="Assets\IconsTemp\ic_event_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_facebook_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_filter_outline_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_filter_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_filtre_active_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_format_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_heart_outline_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_heart_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_keyboard_arrow_down_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_keyboard_arrow_up_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_local_cafe_black_48px.svg" />
+    <None Include="Assets\IconsTemp\ic_map_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_microphone_black_18px.svg" />
+    <None Include="Assets\IconsTemp\ic_microphone_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_pencil_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_place_black_18px.svg" />
+    <None Include="Assets\IconsTemp\ic_restaurant_menu_black_48px.svg" />
+    <None Include="Assets\IconsTemp\ic_search_white_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_star_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_star_border_black_24px.svg" />
+    <None Include="Assets\IconsTemp\ic_twitter_white_24dp.svg" />
+    <None Include="Assets\IconsTemp\ic_web_white_24dp.svg" />
+    <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\Menu\map.png" />
+    <Content Include="Assets\Menu\map_weiss.png" />
+    <Content Include="Assets\Menu\schedule.png" />
+    <Content Include="Assets\Menu\schedule_weiss.png" />
+    <Content Include="Assets\Menu\speaker.png" />
+    <Content Include="Assets\Menu\speaker_weiss.png" />
+    <Content Include="Assets\Menu\tracks.png" />
+    <Content Include="Assets\Menu\tracks_weiss.png" />
+    <Content Include="Assets\pencil_white.png" />
+    <Content Include="Assets\place.png" />
+    <Content Include="Assets\search.png" />
+    <Content Include="Assets\SplashScreen.scale-240.png" />
+    <Content Include="Assets\FallbackData\splash_btn_brussels.png" />
+    <Content Include="Assets\FallbackData\splash_btn_krakow.png" />
+    <Content Include="Assets\FallbackData\splash_btn_ma.png" />
+    <Content Include="Assets\FallbackData\splash_btn_paris.png" />
+    <Content Include="Assets\FallbackData\splash_btn_uk.png" />
+    <Content Include="Assets\Square44x44Logo.scale-240.png" />
+    <Content Include="Assets\Square71x71Logo.scale-240.png" />
+    <Content Include="Assets\star_empty.png" />
+    <Content Include="Assets\star_filled.png" />
+    <Content Include="Assets\star_white_empty.png" />
+    <Content Include="Assets\star_white_filled.png" />
+    <Content Include="Assets\StoreLogo.scale-240.png" />
+    <Content Include="Assets\talk_background.png" />
+    <Content Include="Assets\twitter_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\wpa81\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.2.0.37227, Culture=neutral, PublicKeyToken=2d6752c4fdf70b88, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\wpa81\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLite.Net, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.Net.Core-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLite.Net.Async, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.Net.Async-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.Async.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.WinRT, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.Net-PCL.3.1.1\lib\portable-win81+wpa81\SQLite.Net.Platform.WinRT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXing, Version=0.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.14.0.1\lib\wpa81\ZXing.winmd</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

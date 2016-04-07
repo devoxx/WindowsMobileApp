@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="44139JulianRonge.MyDevoxx" Publisher="CN=9BC47F93-CADE-4B4A-94B6-E9EAA16DE51C" Version="1.1.0.5" />
+  <mp:PhoneIdentity PhoneProductId="e36f1777-39a9-4063-ba95-4b50f2344c78" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>My Devoxx</DisplayName>
+    <PublisherDisplayName>Julian Ronge</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="MyDevoxx.App">
+      <m3:VisualElements DisplayName="My Devoxx" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="This application allows you to browse the MyDevoxx schedules. It offers you an overview and details of all the presentations and speakers. It loads its data from the MyDevoxx servers so you will always have the latest information." ForegroundText="light" BackgroundColor="transparent">
+        <m3:DefaultTile Square71x71Logo="Assets\Square71x71Logo.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+      </m3:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <m3:Capability Name="appointments" />
+    <DeviceCapability Name="webcam" />
+  </Capabilities>
+</Package>

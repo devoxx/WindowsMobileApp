@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="MyDevoxx.UserControls.EventBreakControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyDevoxx.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="90"
+    d:DesignWidth="500"
+    Foreground="{StaticResource DevoxxFontGrayBrush}">
+
+    <Grid Height="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Width="50" Source="ms-appx:///Assets/cup.png" />
+
+        <Grid Grid.Column="1">
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding title}" 
+                           VerticalAlignment="Center" 
+                           FontSize="18" 
+                           FontFamily="{StaticResource RobotoRegular}" 
+                           TextWrapping="WrapWholeWords" TextTrimming="CharacterEllipsis" Margin="5,0"/>
+        </Grid>
+    </Grid>
+</UserControl>

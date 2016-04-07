@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="MyDevoxx.UserControls.NavigationBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyDevoxx.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="400" 
+    Loaded="UserControl_Loaded"
+    FontFamily="/Assets/Fonts/Roboto-Bold.ttf#Roboto">
+
+    <Grid Background="{StaticResource DevoxxBackgroundBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="Schedule_Tapped">
+            <Image x:Name="ScheduleImage" Source="ms-appx:///Assets/Menu/schedule_weiss.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" Opacity="0.8" />
+            <TextBlock x:Name="Schdule" Foreground="White" Text="SCHEDULE" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8"/>
+            <Rectangle Fill="Transparent" />
+        </Grid>
+        <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="Tracks_Tapped">
+            <Image x:Name="TracksImage" Source="ms-appx:///Assets/Menu/tracks_weiss.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" Opacity="0.8" />
+            <TextBlock x:Name="Tracks" Foreground="White" Text="TRACKS" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8"/>
+            <Rectangle Fill="Transparent" />
+        </Grid>
+        <Grid Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="Speakers_Tapped">
+            <Image x:Name="SpeakersImage" Source="ms-appx:///Assets/Menu/speaker_weiss.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" Opacity="0.8" />
+            <TextBlock x:Name="Speakers" Foreground="White" Text="SPEAKERS" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8"/>
+            <Rectangle Fill="Transparent" />
+        </Grid>
+        <Grid Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="Map_Tapped">
+            <Image x:Name="MapImage" Source="ms-appx:///Assets/Menu/map_weiss.png" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" Opacity="0.8" />
+            <TextBlock x:Name="Map" Foreground="White" Text="MAP" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.8"/>
+            <Rectangle Fill="Transparent" />
+        </Grid>
+    </Grid>
+</UserControl>
