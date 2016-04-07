@@ -105,11 +105,18 @@ namespace MyDevoxx.ViewModel
         {
             this.Event = e;
             this.Note = await DataService.GetNote(Event.id);
+
             Conference conference = await DataService.GetCurrentConference();
             this.VotingImage = conference.votingImageName;
+
             bool votingFlag = false;
             Boolean.TryParse(conference.votingEnabled, out votingFlag);
-            this.VotingEnabled = votingFlag;
+
+            DateTime fromDate;
+            bool isSuccessfulParsed = DateTime.TryParse("conference.fromDate", out fromDate);
+
+            // enable voting when cfp enables voting and the todays date is equal or greater than the conference start date
+            this.VotingEnabled = votingFlag && isSuccessfulParsed && fromDate.Date <= DateTime.Now.Date;
 
             this.Vote = await DataService.GetVote(Event.id);
         }
@@ -135,7 +142,7 @@ namespace MyDevoxx.ViewModel
         public async void SendVote()
         {
             await DataService.SaveOrUpdateVote(this.Vote);
-            if(this.Vote.rating < 1)
+            if (this.Vote.rating < 1)
             {
                 return;
             }
@@ -146,7 +153,8 @@ namespace MyDevoxx.ViewModel
                 IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
                 await dialogService.ShowMessage(voteMessage.messaage + voteMessage.message, "I'm sorry!");
             }
-            else {
+            else
+            {
                 this.Vote.IsSent = true;
                 await DataService.SaveOrUpdateVote(this.Vote);
             }
