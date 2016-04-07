@@ -63,7 +63,7 @@
                             <MenuFlyoutItem Text="Register" Click="Register_Click"/>
                             <!--<MenuFlyoutItem Text="Voting results" Click="VotingResults_Click"/>-->
                             <!--<MenuFlyoutItem Text="Credits" Click="Credits_Click"/>-->
-                            <!--<MenuFlyoutItem Text="Report Issue"/>-->
+                            <MenuFlyoutItem Text="Report Issue" Click="ReportIssue_Click"/>
                             <MenuFlyoutItem Text="Settings" Click="Settings_Click"/>
                         </MenuFlyout>
                     </FlyoutBase.AttachedFlyout>

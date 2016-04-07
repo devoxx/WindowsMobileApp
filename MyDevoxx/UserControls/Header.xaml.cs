@@ -31,6 +31,8 @@ namespace MyDevoxx.UserControls
         public delegate void SearchTappedHandler(object sender, string searchString);
         public event SearchTappedHandler SearchTapped;
 
+        private static string REPORT_ISSUE_URL = "https://github.com/devoxx/WindowsMobileApp/issues";
+
         public static string FILTER_INACTIVE = "ms-appx:///Assets/filter_empty.png";
         public static string FILTER_ACTIVE = "ms-appx:///Assets/filter_filled.png";
 
@@ -216,6 +218,11 @@ namespace MyDevoxx.UserControls
         private void VotingResults_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.NavigateTo(ViewModelLocator.VotingResultViewKey);
+        }
+
+        private async void ReportIssue_Click(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri(REPORT_ISSUE_URL));
         }
     }
 }
