@@ -23,7 +23,15 @@ namespace MyDevoxx.Services
         public async void sendTalkTweet(Event e)
         {
             string talkURL = (string)settings.Values["talkURL"];
-            string msg = WebUtility.UrlEncode(e.title + " " + talkURL + e.id);
+            string msg;
+            if (string.IsNullOrEmpty(talkURL))
+            {
+                msg = WebUtility.UrlEncode(e.title);
+            }
+            else
+            {
+                msg = WebUtility.UrlEncode(e.title + " " + talkURL + e.id);
+            }
             await Launcher.LaunchUriAsync(new Uri(twitterTweetUri + msg));
         }
 

@@ -35,7 +35,10 @@ namespace MyDevoxx.Converter.Model
                 {
                     speaker.talkIds += a.id + ",";
                 }
-                speaker.talkIds = speaker.talkIds.Remove(speaker.talkIds.Length - 1);
+                if (speaker.talkIds.Length > 0)
+                {
+                    speaker.talkIds = speaker.talkIds.Remove(speaker.talkIds.Length - 1);
+                }
             }
 
             return speaker;
