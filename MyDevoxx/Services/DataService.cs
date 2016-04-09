@@ -177,13 +177,19 @@ namespace MyDevoxx.Services
         public async Task<List<Track>> GetTracks()
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Track>().Where(t => t.confId.Equals(confId)).OrderBy(t => t.title).ToListAsync();
+            return await sqlConnection.Table<Track>()
+                .Where(t => t.confId.Equals(confId))
+                .OrderBy(t => t.title)
+                .ToListAsync();
         }
 
         public async Task<List<Speaker>> GetSpeakers()
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Speaker>().Where(t => t.confId.Equals(confId)).ToListAsync();
+            return await sqlConnection.Table<Speaker>()
+                .Where(s => s.confId.Equals(confId))
+                .OrderBy(s => s.firstName)
+                .ToListAsync();
         }
 
         public async Task<List<Speaker>> GetSpeakersBySearchCriteria(string searchString)
@@ -227,7 +233,10 @@ namespace MyDevoxx.Services
         public async Task<List<Event>> GetEventsByDay(string day)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Event>().Where(t => t.confId.Equals(confId) && t.day.Equals(day)).ToListAsync();
+            return await sqlConnection.Table<Event>()
+                .Where(t => t.confId.Equals(confId) && t.day.Equals(day))
+                .OrderBy(e => e.fullTime)
+                .ToListAsync();
         }
 
         public async Task<Event> GetEventsById(string id)
