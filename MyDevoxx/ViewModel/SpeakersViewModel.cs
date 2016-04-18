@@ -11,6 +11,7 @@ using GalaSoft.MvvmLight.Command;
 using System;
 using GalaSoft.MvvmLight.Messaging;
 using MyDevoxx.Utils;
+using System.Diagnostics;
 
 namespace MyDevoxx.ViewModel
 {
@@ -47,6 +48,8 @@ namespace MyDevoxx.ViewModel
             {
                 SearchString = (string)searchSettings;
             }
+
+            Messenger.Default.Register<MessageType>(this, Refresh);
         }
 
         public async void LoadData()
@@ -104,6 +107,17 @@ namespace MyDevoxx.ViewModel
 
             LoadData();
             Messenger.Default.Send<MessageType>(MessageType.SEARCH_COMPLETED);
+        }
+
+        public void Refresh(MessageType messageType)
+        {
+            if (MessageType.REFRESH_SPEAKERS.Equals(messageType) && isLoaded)
+            {
+                Debug.WriteLine("Refresh Speakers");
+                SpeakerList.Clear();
+                isLoaded = false;
+                LoadData();
+            }
         }
     }
 

@@ -27,6 +27,7 @@ namespace MyDevoxx.ViewModel
         private IDataService Service;
 
         private bool isLoaded;
+        private bool refreshRequested;
 
         private string[] DayNames = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
         private string[] DayPivotNames = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
@@ -102,6 +103,7 @@ namespace MyDevoxx.ViewModel
             Messenger.Default.Register<Event>(this, UpdateEvents);
             Messenger.Default.Register<MessageType>(this, ApplyFilter);
             Messenger.Default.Register<MessageType>(this, ClearFilter);
+            Messenger.Default.Register<MessageType>(this, RequestRefresh);
 
             TrackFilterCommand = new RelayCommand<FilterItem>(TrackFilterTapped);
             DayFilterCommand = new RelayCommand<FilterItem>(DayFilterTapped);
@@ -138,6 +140,12 @@ namespace MyDevoxx.ViewModel
                 return;
             }
             isLoaded = true;
+
+            if (refreshRequested)
+            {
+                refreshRequested = false;
+                PivotItems.Clear();
+            }
 
             Conference conference = await Service.GetCurrentConference();
 
@@ -206,12 +214,6 @@ namespace MyDevoxx.ViewModel
             List<Event> result = await Service.GetEventsBySearchCriteria(SearchString);
             return new SlotGroup(result, true)
             { GroupName = "Found: " + result.Count };
-        }
-
-        public void Refresh()
-        {
-            Cleanup();
-            LoadData();
         }
 
         public override void Cleanup()
@@ -337,6 +339,15 @@ namespace MyDevoxx.ViewModel
 
             LoadData();
             Messenger.Default.Send<MessageType>(MessageType.SEARCH_COMPLETED);
+        }
+
+        private void RequestRefresh(MessageType messageType)
+        {
+            if (MessageType.REQUEST_REFRESH_SCHEDULE.Equals(messageType))
+            {
+                refreshRequested = true;
+                isLoaded = false;
+            }
         }
     }
 

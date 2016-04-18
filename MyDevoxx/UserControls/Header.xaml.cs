@@ -195,8 +195,8 @@ namespace MyDevoxx.UserControls
             {
                 if (SearchTapped != null)
                 {
-                    SearchTapped(this, SearchString);
                     SearchField.IsEnabled = false;
+                    SearchTapped(this, SearchString);                   
                 }
             }
         }

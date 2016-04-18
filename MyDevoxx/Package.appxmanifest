@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="44139JulianRonge.MyDevoxx" Publisher="CN=9BC47F93-CADE-4B4A-94B6-E9EAA16DE51C" Version="1.1.0.8" />
+  <Identity Name="44139JulianRonge.MyDevoxx" Publisher="CN=9BC47F93-CADE-4B4A-94B6-E9EAA16DE51C" Version="1.1.0.10" />
   <mp:PhoneIdentity PhoneProductId="e36f1777-39a9-4063-ba95-4b50f2344c78" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>My Devoxx</DisplayName>
@@ -25,7 +25,6 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClientServer" />
-    <m3:Capability Name="appointments" />
     <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>

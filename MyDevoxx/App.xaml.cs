@@ -16,6 +16,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using GalaSoft.MvvmLight.Messaging;
+using MyDevoxx.Utils;
+using System.Diagnostics;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -252,8 +255,10 @@ namespace MyDevoxx
         {
             if (successful)
             {
-                //TODO send message to view models to update
-                //ViewModelLocator.Cleanup();
+                Debug.WriteLine("Send Refresh Message");
+                Messenger.Default.Send<MessageType>(MessageType.REFRESH_SPEAKERS);
+                Messenger.Default.Send<MessageType>(MessageType.REQUEST_REFRESH_SCHEDULE);
+                Messenger.Default.Send<MessageType>(MessageType.REFRESH_TRACKS);
             }
         }
     }

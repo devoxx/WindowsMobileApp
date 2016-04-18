@@ -6,6 +6,7 @@ using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.ObjectModel;
 using Windows.System;
+using GalaSoft.MvvmLight.Views;
 
 namespace MyDevoxx.ViewModel
 {
@@ -13,6 +14,19 @@ namespace MyDevoxx.ViewModel
     {
         private IDataService Service;
         private ITwitterService TwitterService;
+
+        private bool _showLoadingIndicator = false;
+        public bool ShowLoadingIndicator
+        {
+            get { return _showLoadingIndicator; }
+            set
+            {
+                if (Set("ShowLoadingIndicator", ref _showLoadingIndicator, value))
+                {
+                    RaisePropertyChanged(() => ShowLoadingIndicator);
+                }
+            }
+        }
 
         private Speaker _speaker;
         public Speaker Speaker
@@ -75,6 +89,7 @@ namespace MyDevoxx.ViewModel
 
         public async void LoadData(object param)
         {
+            this.ShowLoadingIndicator = true;
             this.EventList.Clear();
             this.Speaker = null;
 
@@ -87,6 +102,12 @@ namespace MyDevoxx.ViewModel
                 uuid = ((Speaker)param).uuid;
             }
             this.Speaker = await Service.GetSpeaker(uuid);
+            if(this.Speaker == null || this.Speaker.uuid == null)
+            {
+                IDialogService dialogService = ServiceLocator.Current.GetInstance<IDialogService>();
+                INavigationService navigationServive = ServiceLocator.Current.GetInstance<INavigationService>();
+                await dialogService.ShowMessage("Could not fetch speaker profile from server. Please try again later.", "I'm sorry!", "OK", () => navigationServive.GoBack());
+            }
             if (this.Speaker.talkIds != null && this.Speaker.talkIds.Length > 0)
             {
                 string[] talkIds = this.Speaker.talkIds.Split(',');
@@ -99,6 +120,7 @@ namespace MyDevoxx.ViewModel
                     }
                 }
             }
+            this.ShowLoadingIndicator = false;
         }
 
         private void Twitter_Tapped()

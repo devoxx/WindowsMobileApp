@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
+using System.Diagnostics;
 
 namespace MyDevoxx.ViewModel
 {
@@ -171,8 +172,9 @@ namespace MyDevoxx.ViewModel
 
         private void ApplyFilter(MessageType type)
         {
-            if (type.Equals(MessageType.REFRESH_TRACKS))
+            if (type.Equals(MessageType.REFRESH_TRACKS) && isLoaded)
             {
+                Debug.WriteLine("Refresh Tracks");
                 isLoaded = false;
                 TrackList.Clear();
 

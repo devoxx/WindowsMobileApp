@@ -32,10 +32,8 @@
         </Grid>
         <ScrollViewer Grid.Row="1" Background="White">
             <StackPanel Margin="10" x:Name="ContentArea">
-                <TextBlock Height="40" Foreground="Black" FontSize="14">
-                <Run Text="If you want to use the new Voting feature, the app needs"/>
-                <LineBreak/>
-                <Run Text="your Devoxxian ID which is on your MyDevoxx-Pass."/>
+                <TextBlock Foreground="Black" FontSize="14" TextWrapping="WrapWholeWords">
+                	If you want to use the voting feature, the app needs your Devoxxian ID which is on your Devoxx-Pass.
                 </TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>

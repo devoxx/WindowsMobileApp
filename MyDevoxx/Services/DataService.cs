@@ -100,8 +100,8 @@ namespace MyDevoxx.Services
             List<Event> starredEvents = await GetStarredEvents();
             Dictionary<string, Event> starredEventsDic = starredEvents.ToDictionary(p => p.id, p => p);
 
-            // delete all events, tracks and speakers
-            await ClearConference(confId);
+            // delete all events
+            await ClearEvents(confId);
 
             string cfpUrl = conference.cfpURL;
             int lastIdx = conference.cfpURL.LastIndexOf('/');
@@ -139,26 +139,41 @@ namespace MyDevoxx.Services
         public async Task CollectTracks()
         {
             List<Track> tracks = await Service.GetTracks();
+            await ClearTracks(currentConferenceId());
             await sqlConnection.InsertOrReplaceAllAsync(tracks);
         }
 
         public async Task CollectFloors()
         {
             List<Model.Floor> floors = await Service.GetFloors();
+            await ClearFloors(currentConferenceId());
             await sqlConnection.InsertOrReplaceAllAsync(floors);
         }
 
         public async Task CollectSpeakers()
         {
             List<Speaker> speakers = await Service.GetSpeakers();
+            await ClearSpeakers(currentConferenceId());
             await sqlConnection.InsertOrReplaceAllAsync(speakers);
         }
 
-        private async Task ClearConference(string confId)
+        private async Task ClearEvents(string confId)
         {
             await sqlConnection.ExecuteAsync("delete from 'Event' where confId = '" + confId + "'");
+        }
+
+        private async Task ClearSpeakers(string confId)
+        {
             await sqlConnection.ExecuteAsync("delete from 'Speaker' where confId = '" + confId + "'");
+        }
+
+        private async Task ClearFloors(string confId)
+        {
             await sqlConnection.ExecuteAsync("delete from 'Floor' where confId = '" + confId + "'");
+        }
+
+        private async Task ClearTracks(string confId)
+        {
             await sqlConnection.ExecuteAsync("delete from 'Track' where confId = '" + confId + "'");
         }
 

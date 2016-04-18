@@ -129,5 +129,11 @@
 			    HorizontalAlignment="Right" 
 			    VerticalAlignment="Top" Margin="0,185,20,0"/>
         </Grid>
+
+        <Grid Grid.RowSpan="2" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,2,0,0">
+            <ProgressBar x:Name="LoadingIndicator" 
+                         Background="{x:Null}" 
+                         IsIndeterminate="{Binding ShowLoadingIndicator}"/>
+        </Grid>
     </Grid>
 </Page>
