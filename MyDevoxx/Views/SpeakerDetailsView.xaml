@@ -93,7 +93,7 @@
             </StackPanel>
         </ScrollViewer>
         <!--Twitter-->
-        <Grid Grid.RowSpan="2" Visibility="{Binding Speaker.twitter, Converter={StaticResource ObjectToVisibilityConverter}}">
+        <Grid Grid.RowSpan="2" Visibility="{Binding Speaker.twitter, Converter={StaticResource ObjectToVisibilityConverter}, FallbackValue=Collapsed}">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Tapped" >
                     <Core:InvokeCommandAction Command="{Binding TwitterCommand}"/>
@@ -111,7 +111,7 @@
 			    VerticalAlignment="Top" Margin="0,185,90,0"/>
         </Grid>
         <!--Blog-->
-        <Grid Grid.RowSpan="2" Visibility="{Binding Speaker.blog, Converter={StaticResource ObjectToVisibilityConverter}}">
+        <Grid Grid.RowSpan="2" Visibility="{Binding Speaker.blog, Converter={StaticResource ObjectToVisibilityConverter}, FallbackValue=Collapsed}">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Tapped" >
                     <Core:InvokeCommandAction Command="{Binding BlogCommand}"/>
