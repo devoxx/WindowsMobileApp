@@ -116,7 +116,7 @@ namespace MyDevoxx.ViewModel
             bool isSuccessfulParsed = DateTime.TryParse(conference.fromDate, out fromDate);
 
             // enable voting when cfp enables voting and the todays date is equal or greater than the conference start date
-            this.VotingEnabled = votingFlag && isSuccessfulParsed && fromDate.Date <= DateTime.Now.Date;
+            this.VotingEnabled = votingFlag && isSuccessfulParsed && fromDate.Date <= DateTime.Today;
 
             this.Vote = await DataService.GetVote(Event.id);
         }
