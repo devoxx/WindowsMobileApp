@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 using GalaSoft.MvvmLight.Messaging;
 using MyDevoxx.Utils;
 using System.Diagnostics;
+using Microsoft.ApplicationInsights.Extensibility;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -38,6 +39,12 @@ namespace MyDevoxx
         /// </summary>
         public App()
         {
+            Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync();
+
+#if DEBUG
+            //TelemetryConfiguration.Active.DisableTelemetry = true;
+#endif
+
             // Configure and register the MVVM Light NavigationService
             var nav = new NavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => nav);
