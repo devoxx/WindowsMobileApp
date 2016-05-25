@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converter="using:MyDevoxx.Converter.View"
+    xmlns:ff="using:FFImageLoading"
+    xmlns:utils="using:MyDevoxx.Utils"
     mc:Ignorable="d"
     d:DesignHeight="90"
     d:DesignWidth="500"
@@ -15,7 +17,7 @@
         <converter:EventTalkStarConverter x:Name="StarConverter"/>
     </UserControl.Resources>
 
-    <Grid Height="85">
+    <Grid Height="105">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
             <ColumnDefinition Width="*"/>
@@ -23,11 +25,26 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Fill="Transparent" Grid.ColumnSpan="3"/>
-        
-        <Image Grid.Column="0" Source="{Binding trackImage}" Width="50"/>
+
+        <ff:FFImage Grid.Column="0" Name="Image" Width="60"
+                    VerticalAlignment="Top"
+                    FadeAnimationEnabled="True"
+                    ErrorPlaceholder="Assets/FallbackData/people.png"
+                    CacheDuration="5"
+                    RetryCount="0"
+                    RetryDelay="100"
+                    DownsampleToViewSize="True"
+                    DownsampleMode="Default"
+                    DownsampleWidth="60"   
+                    Source="{Binding speakerImage}" Margin="0,5,0,0">
+            <ff:FFImage.Transformations>
+                <utils:CircleTransformation/>
+            </ff:FFImage.Transformations>
+        </ff:FFImage>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
@@ -37,22 +54,28 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding title}" 
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding trackName}" 
                            VerticalAlignment="Center" 
-                           FontSize="18" 
+                           FontSize="12" 
+                           FontFamily="{StaticResource RobotoRegular}" 
+                           Margin="5,0" 
+                           TextTrimming="CharacterEllipsis" Foreground="#FFFF2121"/>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding title}" 
+                           VerticalAlignment="Center" 
+                           FontSize="15" 
                            FontFamily="{StaticResource RobotoRegular}" 
                            TextWrapping="WrapWholeWords" TextTrimming="CharacterEllipsis" Margin="5,0"/>
 
-            <Image Grid.Row="1" Grid.Column="0" Source="ms-appx:///Assets/place.png"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding roomName}" 
+            <Image Grid.Row="2" Grid.Column="0" Source="ms-appx:///Assets/place.png"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding roomName}" 
                            VerticalAlignment="Center" 
                            FontSize="12" 
                            FontFamily="{StaticResource RobotoRegular}" 
                            Margin="5,0" 
                            TextTrimming="CharacterEllipsis"/>
 
-            <Image Grid.Row="2" Grid.Column="0" Source="ms-appx:///Assets/Menu/speaker.png" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding speakerNames}" 
+            <Image Grid.Row="3" Grid.Column="0" Source="ms-appx:///Assets/Menu/speaker.png" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding speakerNames}" 
                            VerticalAlignment="Center" 
                            FontSize="12" 
                            FontFamily="{StaticResource RobotoRegular}" 

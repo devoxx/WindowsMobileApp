@@ -19,7 +19,6 @@ using Windows.UI.Xaml.Navigation;
 using GalaSoft.MvvmLight.Messaging;
 using MyDevoxx.Utils;
 using System.Diagnostics;
-using Microsoft.ApplicationInsights.Extensibility;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 

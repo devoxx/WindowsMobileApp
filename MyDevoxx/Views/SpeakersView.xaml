@@ -9,6 +9,8 @@
     xmlns:control="using:MyDevoxx.UserControls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ff="using:FFImageLoading"
+    xmlns:utils="using:MyDevoxx.Utils"
     mc:Ignorable="d"
     Background="{StaticResource DevoxxBackgroundShadowBrush}"
     FontFamily="/Assets/fonts/Roboto-Regular.ttf#Roboto"
@@ -91,7 +93,7 @@
                                            Foreground="{StaticResource DevoxxFontGrayBrush}" HorizontalAlignment="Left" 
                                            FontSize="10"
                                            TextTrimming="CharacterEllipsis" VerticalAlignment="Top"></TextBlock>
-                            <Border CornerRadius="24" Height="48" Width="48" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
+                            <!--<Border CornerRadius="24" Height="48" Width="48" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
                                         HorizontalAlignment="Right" 
                                         VerticalAlignment="Top"
                                         BorderBrush="LightGray" BorderThickness="1">
@@ -106,7 +108,23 @@
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Border.Background>
-                            </Border>
+                            </Border>-->
+                            <ff:FFImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Width="60"
+                                        HorizontalAlignment="Right" 
+                                        VerticalAlignment="Top"
+                                        FadeAnimationEnabled="True"
+                                        ErrorPlaceholder="Assets/FallbackData/people.png"
+                                        CacheDuration="5"
+                                        RetryCount="0"
+                                        RetryDelay="100"
+                                        DownsampleToViewSize="True"
+                                        DownsampleMode="Default"
+                                        DownsampleWidth="60"   
+                                        Source="{Binding avatarURL}" Margin="0,5,0,0">
+                                <ff:FFImage.Transformations>
+                                    <utils:CircleTransformation/>
+                                </ff:FFImage.Transformations>
+                            </ff:FFImage>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

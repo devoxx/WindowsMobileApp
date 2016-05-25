@@ -33,6 +33,8 @@ namespace MyDevoxx.Model
         public string trackName { get; set; }
         public string trackImage { get; set; }
 
+        public string speakerImage { get; set; }
+
         public string talkType { get; set; }
 
         // comma seperated list of speaker names

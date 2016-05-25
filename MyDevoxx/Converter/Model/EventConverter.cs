@@ -28,11 +28,16 @@ namespace MyDevoxx.Converter.Model
                     {
                         e.speakerNames += ss.name + ", ";
                         e.speakerId += ss.link.href.Substring(ss.link.href.LastIndexOf("/") + 1) + ",";
+                        if (e.speakerImage == null)
+                        {
+                            e.speakerImage = e.speakerId;
+                        }
                     }
                     if (s.talk.speakers.Count > 0)
                     {
                         e.speakerNames = e.speakerNames.Remove(e.speakerNames.Length - 2);
                         e.speakerId = e.speakerId.Remove(e.speakerId.Length - 1);
+                        e.speakerImage = e.speakerImage.Remove(e.speakerImage.Length - 1);
                     }
                     e.type = EventType.TALK;
                 }
