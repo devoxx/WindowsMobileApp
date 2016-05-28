@@ -45,7 +45,7 @@
                 </TransitionCollection>
             </Grid.Transitions>
             <ListView ItemsSource="{Binding Source={StaticResource src}}"
-                          Margin="0">
+                      Margin="0" Name="SpeakersList">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -93,23 +93,23 @@
                                            Foreground="{StaticResource DevoxxFontGrayBrush}" HorizontalAlignment="Left" 
                                            FontSize="10"
                                            TextTrimming="CharacterEllipsis" VerticalAlignment="Top"></TextBlock>
-                            <!--<Border CornerRadius="24" Height="48" Width="48" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
+                            <Border CornerRadius="25" Height="50" Width="50" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
                                         HorizontalAlignment="Right" 
                                         VerticalAlignment="Top"
-                                        BorderBrush="LightGray" BorderThickness="1">
+                                        BorderThickness="1">
                                 <Border.Background>
                                     <ImageBrush ImageFailed="ImageBrush_ImageFailed">
                                         <ImageBrush.ImageSource>
                                             <BitmapImage
                                                     UriSource="{Binding avatarURL}" 
-                                                    DecodePixelWidth="48"
-                                                    DecodePixelHeight="48"
+                                                    DecodePixelWidth="50"
+                                                    DecodePixelHeight="50"
                                                     DecodePixelType="Logical"/>
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Border.Background>
-                            </Border>-->
-                            <ff:FFImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Width="60"
+                            </Border>
+                            <!--<ff:FFImage Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Width="60"
                                         HorizontalAlignment="Right" 
                                         VerticalAlignment="Top"
                                         FadeAnimationEnabled="True"
@@ -124,7 +124,7 @@
                                 <ff:FFImage.Transformations>
                                     <utils:CircleTransformation/>
                                 </ff:FFImage.Transformations>
-                            </ff:FFImage>
+                            </ff:FFImage>-->
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
