@@ -1,4 +1,5 @@
 ﻿using Windows.UI.Xaml.Controls;
+using FFImageLoading.Transformations;
 
 namespace MyDevoxx.UserControls
 {

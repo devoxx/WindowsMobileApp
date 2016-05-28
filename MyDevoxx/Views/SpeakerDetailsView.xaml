@@ -32,7 +32,7 @@
             <StackPanel HorizontalAlignment="Stretch"
 				VerticalAlignment="Bottom" Margin="10">
                 <Border CornerRadius="35" Height="70" Width="70"
-                        BorderBrush="LightGray" BorderThickness="1" Margin="0,0,0,10"
+                        BorderThickness="1" Margin="0,0,0,10"
                         HorizontalAlignment="Left">
                     <Border.Background>
                         <ImageBrush ImageFailed="SpeakerImageBrush_ImageFailed">

@@ -88,6 +88,11 @@ namespace MyDevoxx.Services
                 .Distinct()
                 .ToDictionary(track => track.Key, track => track.Value, StringComparer.OrdinalIgnoreCase);
 
+            List<Speaker> speakers = await Service.GetSpeakers();
+            var speakerDic = speakers.Select(speaker => new { Key = speaker.uuid, Value = speaker.avatarURL })
+                .Distinct()
+                .ToDictionary(speaker => speaker.Key, speaker => speaker.Value, StringComparer.OrdinalIgnoreCase);
+
             string confId = currentConferenceId();
             Conference conference = await sqlConnection.Table<Conference>().Where(c => c.id.Equals(confId)).FirstOrDefaultAsync();
 
@@ -130,6 +135,17 @@ namespace MyDevoxx.Services
                     {
                         e.Starred = true;
                     }
+
+                    string speakerImage;
+                    if (e.speakerImage != null && speakerDic.TryGetValue(e.speakerImage, out speakerImage))
+                    {
+                        e.speakerImage = speakerImage;
+                    }
+                    else
+                    {
+                        e.speakerImage = null;
+                    }
+
                 }
                 await sqlConnection.InsertOrReplaceAllAsync(events);
             }
@@ -230,7 +246,12 @@ namespace MyDevoxx.Services
         public async Task<List<Model.Floor>> GetFloors(string target)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Model.Floor>().Where(t => t.confId.Equals(confId) && t.target.Equals(target)).ToListAsync();
+            List<Model.Floor> floors = await sqlConnection.Table<Model.Floor>().Where(t => t.confId.Equals(confId) && t.target.Equals(target)).ToListAsync();
+            if(floors.Count == 0)
+            {
+                return await sqlConnection.Table<Model.Floor>().Where(t => t.confId.Equals(confId)).ToListAsync();
+            }
+            return floors;
         }
 
         public async Task<Conference> GetCurrentConference()
