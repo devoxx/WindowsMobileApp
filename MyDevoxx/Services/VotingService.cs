@@ -22,10 +22,9 @@ namespace MyDevoxx.Services
         public async Task<VoteMessage> Vote(Vote vote)
         {
             string confId = (string)settings.Values["conferenceId"];
-            string user = (string)settings.Values[USERID + confId];
+            string userId = (string)settings.Values[USERID + confId];
 
-            int userId = -1;
-            if (string.IsNullOrWhiteSpace(user) || !int.TryParse(user, out userId))
+            if (string.IsNullOrWhiteSpace(userId))
             {
                 return null;
             }

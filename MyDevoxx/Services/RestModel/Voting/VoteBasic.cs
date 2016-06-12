@@ -6,7 +6,7 @@ namespace MyDevoxx.Services.RestModel.Voting
     public class VoteBasic
     {
         [DataMember]
-        public int user { get; set; }
+        public string user { get; set; }
         [DataMember]
         public string talkId { get; set; }
         [DataMember]
