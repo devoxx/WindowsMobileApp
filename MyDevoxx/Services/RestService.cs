@@ -272,7 +272,7 @@ namespace MyDevoxx.Services
 
             try
             {
-                HttpResponseMessage response = await client.PostAsync(new Uri(votingURL + confId + "/vote"), new HttpStringContent(dataString, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json"));
+                HttpResponseMessage response = await client.PostAsync(new Uri(votingURL + "api/voting/v1/vote"), new HttpStringContent(dataString, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json"));
                 if (!HttpStatusCode.Created.Equals(response.StatusCode))
                 {
                     string responseTxt = await response.Content.ReadAsStringAsync();
