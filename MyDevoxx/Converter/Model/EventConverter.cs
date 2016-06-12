@@ -1,5 +1,6 @@
 ﻿using MyDevoxx.Model;
 using MyDevoxx.Services.RestModel;
+using System;
 using System.Collections.Generic;
 
 namespace MyDevoxx.Converter.Model
@@ -57,10 +58,18 @@ namespace MyDevoxx.Converter.Model
                 e.day = s.day;
                 e.roomName = s.roomName;
                 e.roomId = s.roomId;
-                e.fromTime = s.fromTime;
+                //e.fromTime = s.fromTime;
                 e.fromTimeMillis = s.fromTimeMillis;
-                e.toTime = s.toTime;
+                //e.toTime = s.toTime;
                 e.toTimeMillis = s.toTimeMillis;
+                //e.fullTime = e.fromTime + " - " + e.toTime;              
+
+                DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                var StartDateTime = epoch.AddMilliseconds(s.fromTimeMillis).AddHours(1);
+                var EndDateTime = epoch.AddMilliseconds(s.toTimeMillis).AddHours(1);
+
+                e.fromTime = StartDateTime.ToString("HH:mm");
+                e.toTime = EndDateTime.ToString("HH:mm");
                 e.fullTime = e.fromTime + " - " + e.toTime;
 
                 events.Add(e);
