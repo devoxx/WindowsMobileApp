@@ -56,7 +56,7 @@ namespace MyDevoxx.Views
 
         private void ImageBrush_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            ((ImageBrush)sender).ImageSource = new BitmapImage(new Uri(@"ms-appx:///Assets/FallbackData/people.png"));
+            ((ImageBrush)sender).ImageSource = new BitmapImage(new Uri(@"ms-appx:///Assets/speaker_placeholder.png"));
         }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)

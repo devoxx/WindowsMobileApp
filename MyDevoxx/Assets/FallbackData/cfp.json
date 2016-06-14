@@ -1,8 +1,8 @@
 ﻿[
- {
+  {
     "id": "DevoxxFR2016",
-    "confType": "MyDevoxx",
-    "confDescription": "MyDevoxx France 2016",
+    "confType": "Devoxx",
+    "confDescription": "Devoxx France 2016",
     "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/splash_btn_paris.png",
     "venue": "Palais des Congres, porte Maillot",
     "address": "2 Place de la Porte Maillot, 75017 Paris",
@@ -10,101 +10,161 @@
     "latitude": "48.8794887",
     "longitude": "2.2812642",
     "floors": [
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxFRExhibitionPhone.jpg", "title": "Venue", "tabpos": "1", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxFRExhibitionTablet.jpg", "title": "Venue", "tabpos": "1", "target": "tablet"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxExposantsPhone.jpg", "title": "Exposants", "tabpos": "2", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxExposantsTablet.jpg", "title": "Exposants", "tabpos": "2", "target": "tablet"}
-  	],
-    "capacity": "2700",
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxFRExhibitionPhone.jpg",
+        "title": "Venue",
+        "tabpos": "1",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxFRExhibitionTablet.jpg",
+        "title": "Venue",
+        "tabpos": "1",
+        "target": "tablet"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxExposantsPhone.jpg",
+        "title": "Exposants",
+        "tabpos": "2",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxExposantsTablet.jpg",
+        "title": "Exposants",
+        "tabpos": "2",
+        "target": "tablet"
+      }
+    ],
+    "capacity": "2800",
     "sessions": "200",
     "hashtag": "#DevoxxFR",
     "splashImgURL": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/france/DevoxxFranceHomePage.jpg",
     "fromDate": "2016-04-20T08:00:00.000Z",
     "toDate": "2016-04-22T21:00:00.000Z",
-    "wwwURL": "https://www.MyDevoxx.fr",
-    "regURL": "https://reg.MyDevoxx.fr",
-    "cfpURL": "https://cfp.MyDevoxx.fr",
-    "talkURL": "",
-    "votingURL": "https://api-voting.MyDevoxx.com/",
+    "wwwURL": "https://www.devoxx.fr",
+    "regURL": "https://reg.devoxx.fr",
+    "cfpURL": "https://cfp.devoxx.fr",
+    "talkURL": "http://cfp.devoxx.fr/2016/talk/",
+    "votingURL": "https://api-voting.devoxx.com/",
     "votingEnabled": "true",
     "votingImageName": "wine",
-    "cfpEndpoint": "https://cfp.MyDevoxx.fr/api",
+    "cfpEndpoint": "https://cfp.devoxx.fr/api",
     "cfpVersion": "1.0",
     "youTubeURL": "https://www.youtube.com/c/devoxx2015",
-    "integration_id":"devoxx_france"
- },
- {
+    "integration_id": "devoxx_france"
+  },
+  {
     "id": "DevoxxUK2016",
-    "confType": "MyDevoxx",    				
-    "confDescription": "MyDevoxx UK 2016",
-    "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/splash_btn_uk.png",    
+    "confType": "Devoxx",
+    "confDescription": "Devoxx UK 2016",
+    "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/splash_btn_uk.png",
     "venue": "Business Design Centre",
     "address": "52 Upper Street, Islington, London N1 0QH",
     "country": "UK",
-    "latitude": "51.507351",
-    "longitude": "-0.127758",
+    "latitude": "51.535625",
+    "longitude": "-0.105840",
     "floors": [
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/DevoxxUKExhibitionFloorplan.jpg", "title": "Exhibition", "tabpos": "1", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/SessionRoomsDevoxxUK2016.jpg", "title": "Session Rooms", "tabpos": "2", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/DevoxxUKExhibitionFloorplan.jpg", "title": "Exhibition", "tabpos": "1", "target": "tablet"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/SessionRoomsDevoxxUK2016.jpg", "title": "Session Rooms", "tabpos": "2", "target": "tablet"}
-  	],
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/DevoxxUKExhibitionFloorplan.jpg",
+        "title": "Exhibition",
+        "tabpos": "1",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/SessionRoomsDevoxxUK2016.jpg",
+        "title": "Session Rooms",
+        "tabpos": "2",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/DevoxxUKExhibitionFloorplan.jpg",
+        "title": "Exhibition",
+        "tabpos": "1",
+        "target": "tablet"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/SessionRoomsDevoxxUK2016.jpg",
+        "title": "Session Rooms",
+        "tabpos": "2",
+        "target": "tablet"
+      }
+    ],
     "capacity": "1000",
     "sessions": "110",
     "hashtag": "#DevoxxUK",
     "splashImgURL": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/uk/DevoxxUKHomePage.jpg",
     "fromDate": "2016-06-08T08:00:00.000Z",
     "toDate": "2016-06-10T22:00:00.000Z",
-    "wwwURL": "http://www.MyDevoxx.co.uk",
-    "regURL": "https://www.eventbrite.co.uk/e/MyDevoxx-uk-2016-tickets-19399397119",
-    "cfpURL": "https://cfp.MyDevoxx.co.uk/",
-    "talkURL": "",    
-    "votingURL": "https://api-voting.MyDevoxx.com/",
+    "wwwURL": "http://www.devoxx.co.uk",
+    "regURL": "https://www.eventbrite.co.uk/e/devoxx-uk-2016-tickets-19399397119",
+    "cfpURL": "https://cfp.devoxx.co.uk/",
+    "talkURL": "http://cfp.devoxx.co.uk/2016/talk/",
+    "votingURL": "https://cfp.devoxx.co.uk/",
     "votingEnabled": "true",
     "votingImageName": "beer",
-    "cfpEndpoint": "https://cfp.MyDevoxx.co.uk/api",
+    "cfpEndpoint": "https://cfp.devoxx.co.uk/api",
     "cfpVersion": "1.0",
     "youTubeURL": "https://www.youtube.com/c/devoxx2015",
-    "integration_id":"devoxx_uk"
- }, 
- {
+    "integration_id": "devoxx_uk"
+  },
+  {
     "id": "DevoxxPL2015",
-    "confType": "MyDevoxx",    				
-    "confDescription": "MyDevoxx Poland 2015",
-    "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/poland/splash_btn_krakow.png",    
+    "confType": "Devoxx",
+    "confDescription": "Devoxx Poland 2016",
+    "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/poland/splash_btn_krakow.png",
     "venue": "ICE Krakow Congress Centre",
     "address": "ul. Marii Konopnickiej 17,Krakow 30-302",
     "country": "Poland",
     "latitude": "50.047902",
     "longitude": "19.931590",
     "floors": [
-       {"img": "todo provide image", "title": "First floor", "tabpos": "1", "target": "phone"},
-       {"img": "todo provide image", "title": "Second floor", "tabpos": "2", "target": "phone"},
-       {"img": "todo provide image", "title": "First floor", "tabpos": "1", "target": "tablet"},
-       {"img": "todo provide image", "title": "Second floor", "tabpos": "2", "target": "tablet"}
-  	],
+      {
+        "img": "todo provide image",
+        "title": "First floor",
+        "tabpos": "1",
+        "target": "phone"
+      },
+      {
+        "img": "todo provide image",
+        "title": "Second floor",
+        "tabpos": "2",
+        "target": "phone"
+      },
+      {
+        "img": "todo provide image",
+        "title": "First floor",
+        "tabpos": "1",
+        "target": "tablet"
+      },
+      {
+        "img": "todo provide image",
+        "title": "Second floor",
+        "tabpos": "2",
+        "target": "tablet"
+      }
+    ],
     "capacity": "2000",
     "sessions": "200",
     "hashtag": "#DevoxxPL",
     "splashImgURL": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/poland/DevoxxPolandHomePage.jpg",
     "fromDate": "2016-06-22T08:00:00.000Z",
     "toDate": "2016-06-25T22:00:00.000Z",
-    "wwwURL": "http://www.MyDevoxx.pl",
-    "regURL": "http://reg.MyDevoxx.pl/",
-    "cfpURL": "http://cfp.MyDevoxx.pl/",
+    "wwwURL": "http://www.devoxx.pl",
+    "regURL": "http://reg.devoxx.pl/",
+    "cfpURL": "http://cfp.devoxx.pl/",
     "talkURL": "",
-    "votingURL": "https://api-voting.MyDevoxx.com/",
+    "votingURL": "https://api-voting.devoxx.com/",
     "votingEnabled": "true",
     "votingImageName": "vodka",
-    "cfpEndpoint": "http://cfp.MyDevoxx.pl/api",
+    "cfpEndpoint": "http://cfp.devoxx.pl/api",
     "cfpVersion": "1.0",
     "youTubeURL": "https://www.youtube.com/c/devoxx2015",
-    "integration_id":"devoxx_poland"
- },
- {
+    "integration_id": "devoxx_poland"
+  },
+  {
     "id": "DV15",
-    "confType": "MyDevoxx",   				
-    "confDescription": "MyDevoxx Belgium 2015",
+    "confType": "Devoxx",
+    "confDescription": "Devoxx Belgium 2015",
     "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/splash_btn_brussels.png",
     "venue": "Kinepolis",
     "address": "Groenendaallaan 394, 2030 Antwerpen",
@@ -112,33 +172,53 @@
     "latitude": "51.245781",
     "longitude": "4.416327",
     "floors": [
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxExhibitionFloorPhone.jpg", "title": "Exhibition", "tabpos": "1", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxCinameFloorPhone.jpg", "title": "Cinema rooms", "tabpos": "2", "target": "phone"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxExhibitionFloorTablet.jpg", "title": "Exhibition", "tabpos": "1", "target": "tablet"},
-       {"img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxCinameFloorTablet.jpg", "title": "Cinema rooms", "tabpos": "2", "target": "tablet"}
-  	],    
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxExhibitionFloorPhone.jpg",
+        "title": "Exhibition",
+        "tabpos": "1",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxCinameFloorPhone.jpg",
+        "title": "Cinema rooms",
+        "tabpos": "2",
+        "target": "phone"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxExhibitionFloorTablet.jpg",
+        "title": "Exhibition",
+        "tabpos": "1",
+        "target": "tablet"
+      },
+      {
+        "img": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/devoxxCinameFloorTablet.jpg",
+        "title": "Cinema rooms",
+        "tabpos": "2",
+        "target": "tablet"
+      }
+    ],
     "capacity": "3500",
     "sessions": "250",
-    "hashtag": "#MyDevoxx",        
+    "hashtag": "#Devoxx",
     "splashImgURL": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/belgium/DevoxxBelgiumHomePage.jpg",
     "fromDate": "2016-11-7T08:00:00.000Z",
     "toDate": "2016-11-11T22:00:00.000Z",
-    "wwwURL": "https://www.MyDevoxx.be",
-    "regURL": "http://reg.MyDevoxx.be/",
-    "cfpURL": "https://cfp.MyDevoxx.be/",
-    "talkURL": "https://cfp.MyDevoxx.be/2015/talk/",
-    "votingURL": "https://api-voting.MyDevoxx.com/",
+    "wwwURL": "https://www.devoxx.be",
+    "regURL": "http://reg.devoxx.be/",
+    "cfpURL": "https://cfp.devoxx.be/",
+    "talkURL": "https://cfp.devoxx.be/2015/talk/",
+    "votingURL": "https://api-voting.devoxx.com/",
     "votingEnabled": "true",
     "votingImageName": "beer",
-    "cfpEndpoint": "https://cfp.MyDevoxx.be/api",
+    "cfpEndpoint": "https://cfp.devoxx.be/api",
     "cfpVersion": "1.0",
     "youTubeURL": "https://www.youtube.com/c/devoxx2015",
-    "integration_id":"devoxx_belgium"
- },
+    "integration_id": "devoxx_belgium"
+  },
   {
     "id": "DevoxxMA2015",
-    "confType": "MyDevoxx",
-    "confDescription": "MyDevoxx Morocco 2015",
+    "confType": "Devoxx",
+    "confDescription": "Devoxx Morocco 2015",
     "confIcon": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/morocco/splash_btn_ma.png",
     "venue": "Studio des Arts Vivants",
     "address": "Route d'Azemmour, Casablanca",
@@ -177,14 +257,14 @@
     "splashImgURL": "https://s3-eu-west-1.amazonaws.com/cfpdevoxx/morocco/DevoxxMoroccoHomePage.jpg",
     "fromDate": "2016-11-1T08:00:00.000Z",
     "toDate": "2016-11-3T22:00:00.000Z",
-    "wwwURL": "http://www.MyDevoxx.ma",
-    "regURL": "http://reg.MyDevoxx.ma/",
-    "cfpURL": "http://cfp.MyDevoxx.ma/",
-    "talkURL": "http://cfp.MyDevoxx.ma/2015/talk/",
-    "votingURL": "https://api-voting.MyDevoxx.com/",
+    "wwwURL": "http://www.devoxx.ma",
+    "regURL": "http://reg.devoxx.ma/",
+    "cfpURL": "http://cfp.devoxx.ma/",
+    "talkURL": "http://cfp.devoxx.ma/2015/talk/",
+    "votingURL": "https://api-voting.devoxx.com/",
     "votingEnabled": "true",
     "votingImageName": "thee",
-    "cfpEndpoint": "http://cfp.MyDevoxx.ma/api",
+    "cfpEndpoint": "http://cfp.devoxx.ma/api",
     "cfpVersion": "1.0",
     "youTubeURL": "https://www.youtube.com/user/JMaghreb",
     "integration_id": "devoxx_morocco"

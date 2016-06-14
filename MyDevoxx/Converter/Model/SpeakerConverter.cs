@@ -25,7 +25,7 @@ namespace MyDevoxx.Converter.Model
             }
             else
             {
-                speaker.avatarURL = @"ms-appx:///Assets/FallbackData/people.png";
+                speaker.avatarURL = @"ms-appx:///Assets/speaker_placeholder.png";
             }
 
             if (s.acceptedTalks != null)
