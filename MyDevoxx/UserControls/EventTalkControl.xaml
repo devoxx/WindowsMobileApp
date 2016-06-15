@@ -26,21 +26,6 @@
 
         <Rectangle Fill="Transparent" Grid.ColumnSpan="3"/>
         <Image Grid.Column="0" Source="{Binding trackImage}" Width="50"/>
-        <!--<ff:FFImage Grid.Column="0" Name="Image" Width="60"
-                    VerticalAlignment="Top"
-                    FadeAnimationEnabled="True"
-                    ErrorPlaceholder="Assets/speaker_placeholder.png"
-                    CacheDuration="5"
-                    RetryCount="0"
-                    RetryDelay="100"
-                    DownsampleToViewSize="True"
-                    DownsampleMode="Default"
-                    DownsampleWidth="60"   
-                    Source="{Binding speakerImage}" Margin="0,5,0,0">
-            <ff:FFImage.Transformations>
-                <utils:CircleTransformation/>
-            </ff:FFImage.Transformations>
-        </ff:FFImage>-->
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
