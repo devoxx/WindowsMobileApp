@@ -45,7 +45,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="ID:" Foreground="Black" FontSize="20"/>
-                    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUserId" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="" BorderBrush="Black" BorderThickness="0.5" InputScope="Number"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtUserId" VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="" BorderBrush="Black" BorderThickness="0.5"/>
                     <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="or" Foreground="Black" FontSize="20"/>
                     <Button Grid.Column="1" Grid.Row="1" Content="Scan QR-Code" HorizontalAlignment="Stretch" Foreground="White" Background="{StaticResource DevoxxBackgroundBrush}" Click="ActivateQR_Click"></Button>
                 </Grid>
