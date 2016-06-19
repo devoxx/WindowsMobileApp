@@ -20,6 +20,7 @@
         <converter:VotingOpacityConverter x:Key="VotingOpacityConverter"/>
         <converter:NegBooleanToVisibilityConverter x:Key="NegBooleanToVisibilityConverter"/>
         <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converter:SpeakerImageConverter x:Name="SpeakerImageConverter"/>
     </Page.Resources>
 
     <Page.Background>
@@ -90,22 +91,52 @@
 							Foreground="Black"
 							FontSize="18"
 							FontFamily="{StaticResource RobotoRegular}"/>
-                        <ListView Grid.Row="1" ItemsSource="{Binding Event, Converter={StaticResource EventToSpeakerListConverter}}">
+                        <ListView Grid.Row="1" ItemsSource="{Binding Event.SpeakerList}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                                     <Setter Property="VerticalContentAlignment" Value="Center" />
-                                    <Setter Property="Height" Value="25"/>
+                                    <Setter Property="Height" Value="30"/>
                                 </Style>
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding firstName}"
+                                    <!--<TextBlock Text="{Binding firstName}"
 										Tag="{Binding uuid}"
 										Foreground="{StaticResource DevoxxFontGrayBrush}"
 										FontSize="15"
 										FontFamily="{StaticResource RobotoRegular}" 
-										TextWrapping="WrapWholeWords" Tapped="Speaker_Tapped"/>
+										TextWrapping="WrapWholeWords" Tapped="Speaker_Tapped"/>-->
+                                    <Grid Tag="{Binding uuid}" Tapped="Speaker_Tapped">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border CornerRadius="15" Height="30" Width="30" Grid.Column="0"
+                                                HorizontalAlignment="Right" 
+                                                VerticalAlignment="Top"
+                                                BorderThickness="1">
+                                            <Border.Background>
+                                                <ImageBrush ImageFailed="ImageBrush_ImageFailed">
+                                                    <ImageBrush.ImageSource>
+                                                        <BitmapImage
+                                                            UriSource="{Binding Converter={StaticResource ResourceKey=SpeakerImageConverter}}" 
+                                                            DecodePixelWidth="30"
+                                                            DecodePixelHeight="30"
+                                                            DecodePixelType="Logical"/>
+                                                    </ImageBrush.ImageSource>
+                                                </ImageBrush>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Text="{Binding fullName}" 
+                                                   VerticalAlignment="Center" 
+                                                   FontSize="15" 
+                                                   Foreground="{StaticResource DevoxxFontGrayBrush}"
+                                                   FontFamily="{StaticResource RobotoRegular}" 
+                                                   Margin="5,0" 
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Grid.Column="1"/>
+                                    </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>

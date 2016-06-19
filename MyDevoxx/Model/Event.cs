@@ -1,5 +1,6 @@
 ﻿using SQLite.Net.Attributes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -54,6 +55,16 @@ namespace MyDevoxx.Model
             {
                 _starred = value;
                 NotifyPropertyChanged();
+            }
+        }
+        
+        public List<Speaker> _speakerList = new List<Speaker>();
+        [Ignore]
+        public List<Speaker> SpeakerList
+        {
+            get
+            {
+                return _speakerList;
             }
         }
 

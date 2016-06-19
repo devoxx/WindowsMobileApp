@@ -247,7 +247,7 @@ namespace MyDevoxx.Services
         {
             string confId = currentConferenceId();
             List<Model.Floor> floors = await sqlConnection.Table<Model.Floor>().Where(t => t.confId.Equals(confId) && t.target.Equals(target)).ToListAsync();
-            if(floors.Count == 0)
+            if (floors.Count == 0)
             {
                 return await sqlConnection.Table<Model.Floor>().Where(t => t.confId.Equals(confId)).ToListAsync();
             }
@@ -263,28 +263,43 @@ namespace MyDevoxx.Services
         public async Task<List<Event>> GetEventsByTrack(string trackId)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Event>().Where(t => t.confId.Equals(confId) && t.trackId.Equals(trackId)).ToListAsync();
+            var eventList = await sqlConnection.Table<Event>().Where(t => t.confId.Equals(confId) && t.trackId.Equals(trackId)).ToListAsync();
+
+            await AttachSpeakers(eventList);
+
+            return eventList;
         }
 
         public async Task<List<Event>> GetEventsByDay(string day)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Event>()
+            var eventList = await sqlConnection.Table<Event>()
                 .Where(t => t.confId.Equals(confId) && t.day.Equals(day))
                 .OrderBy(e => e.fullTime)
                 .ToListAsync();
+
+            await AttachSpeakers(eventList);
+
+            return eventList;
         }
 
         public async Task<Event> GetEventsById(string id)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Event>().Where(t => t.confId.Equals(confId) && t.id.Equals(id)).FirstOrDefaultAsync();
+            var e =  await sqlConnection.Table<Event>().Where(t => t.confId.Equals(confId) && t.id.Equals(id)).FirstOrDefaultAsync();
+
+            if (e != null)
+            {
+                await AttachSpeakers(e);
+            }
+
+            return e;
         }
 
         public async Task<List<Event>> GetEventsBySearchCriteria(string searchString)
         {
             string confId = currentConferenceId();
-            return await sqlConnection.Table<Event>()
+            var eventList = await sqlConnection.Table<Event>()
                 .Where(t => t.confId.Equals(confId) && t.type.Equals(EventType.TALK) &&
                     (t.title.Contains(searchString) ||
                     t.summary.Contains(searchString) ||
@@ -293,6 +308,10 @@ namespace MyDevoxx.Services
                 .OrderByDescending(e => e.Starred)
                 .OrderBy(e => e.title)
                 .ToListAsync();
+
+            await AttachSpeakers(eventList);
+
+            return eventList;
         }
 
         public async Task<List<Event>> GetStarredEvents()
@@ -362,6 +381,49 @@ namespace MyDevoxx.Services
                 vote = votes.First();
             }
             return vote;
+        }
+
+        private async Task AttachSpeakers(List<Event> eventList)
+        {
+            List<Speaker> speakerList = await GetSpeakers();
+            var speakerMap = speakerList.GroupBy(x => x.uuid)
+                                .ToDictionary(x => x.Key, x => x.First());
+            foreach (Event e in eventList)
+            {
+                if (string.IsNullOrEmpty(e.speakerId))
+                {
+                    continue;
+                }
+                string[] speakerIds = e.speakerId.Split(',');
+                foreach (string id in speakerIds)
+                {
+                    Speaker s;
+                    if (speakerMap.TryGetValue(id, out s))
+                    {
+                        e.SpeakerList.Add(s);
+                    }
+                }
+            }
+        }
+
+        private async Task AttachSpeakers(Event e)
+        {
+            List<Speaker> speakerList = await GetSpeakers();
+            var speakerMap = speakerList.GroupBy(x => x.uuid)
+                                .ToDictionary(x => x.Key, x => x.First());
+            if (string.IsNullOrEmpty(e.speakerId))
+            {
+                return;
+            }
+            string[] speakerIds = e.speakerId.Split(',');
+            foreach (string id in speakerIds)
+            {
+                Speaker s;
+                if (speakerMap.TryGetValue(id, out s))
+                {
+                    e.SpeakerList.Add(s);
+                }
+            }
         }
     }
 }

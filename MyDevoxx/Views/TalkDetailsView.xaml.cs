@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media;
 
 namespace MyDevoxx.Views
 {
@@ -40,12 +41,12 @@ namespace MyDevoxx.Views
 
         private void Speaker_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (!typeof(TextBlock).Equals(sender.GetType()))
+            if (!typeof(Grid).Equals(sender.GetType()))
             {
                 return;
             }
             var nav = ServiceLocator.Current.GetInstance<INavigationService>();
-            nav.NavigateTo(ViewModelLocator.SpeakerDetailsViewKey, ((TextBlock)sender).Tag);
+            nav.NavigateTo(ViewModelLocator.SpeakerDetailsViewKey, ((Grid)sender).Tag);
         }
 
         private void Save_Tapped(object sender, TappedRoutedEventArgs e)
@@ -106,6 +107,11 @@ namespace MyDevoxx.Views
         public void CloseVotingGrid()
         {
             VotingGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void ImageBrush_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            ((ImageBrush)sender).ImageSource = new BitmapImage(new Uri(@"ms-appx:///Assets/speaker_placeholder.png"));
         }
     }
 }

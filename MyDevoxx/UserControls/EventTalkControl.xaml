@@ -15,9 +15,10 @@
 
     <UserControl.Resources>
         <converter:EventTalkStarConverter x:Name="StarConverter"/>
+        <converter:SpeakerImageConverter x:Name="SpeakerImageConverter"/>
     </UserControl.Resources>
 
-    <Grid Height="105">
+    <Grid Height="auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75"/>
             <ColumnDefinition Width="*"/>
@@ -25,14 +26,14 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Fill="Transparent" Grid.ColumnSpan="3"/>
-        <Image Grid.Column="0" Source="{Binding trackImage}" Width="50"/>
+        <Image Grid.Column="0" Source="{Binding trackImage}" Width="50" VerticalAlignment="Top"/>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15"/>
@@ -59,13 +60,60 @@
                            Margin="5,0" 
                            TextTrimming="CharacterEllipsis"/>
 
-            <Image Grid.Row="3" Grid.Column="0" Source="ms-appx:///Assets/Menu/speaker.png" />
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding speakerNames}" 
-                           VerticalAlignment="Center" 
-                           FontSize="12" 
-                           FontFamily="{StaticResource RobotoRegular}" 
-                           Margin="5,0" 
-                           TextTrimming="CharacterEllipsis"/>
+            <GridView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                      ItemsSource="{Binding SpeakerList}" 
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                      Padding="0">
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VariableSizedWrapGrid Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="Width" Value="auto" />
+                        <Setter Property="Height"  Value="auto" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="1" />
+                    </Style>
+                </GridView.ItemContainerStyle>
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border CornerRadius="15" Height="30" Width="30" Grid.Column="0"
+                                        HorizontalAlignment="Right" 
+                                        VerticalAlignment="Top"
+                                        BorderThickness="1">
+                                <Border.Background>
+                                    <ImageBrush ImageFailed="ImageBrush_ImageFailed">
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage
+                                                    UriSource="{Binding Converter={StaticResource ResourceKey=SpeakerImageConverter}}" 
+                                                    DecodePixelWidth="30"
+                                                    DecodePixelHeight="30"
+                                                    DecodePixelType="Logical"/>
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="{Binding fullName}" 
+                                   VerticalAlignment="Center" 
+                                   FontSize="12" 
+                                   FontFamily="{StaticResource RobotoRegular}" 
+                                   Margin="5,0" 
+                                   TextTrimming="CharacterEllipsis"
+                                   Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </Grid>
 
         <Image Grid.Column="2" Source="{Binding Starred, Converter={StaticResource ResourceKey=StarConverter}}" Opacity="0.8" Width="35"/>
