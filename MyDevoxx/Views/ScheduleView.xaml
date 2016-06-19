@@ -22,15 +22,15 @@
         <converter:BorderColorConverter x:Key="BorderColorConverter"/>
 
         <DataTemplate x:Key="TalkTemplate">
-            <control:EventTalkControl Margin="5,0,5,15" Tapped="EventTalkControl_Tapped"/>
+            <control:EventTalkControl Margin="5,0,5,10" Tapped="EventTalkControl_Tapped"/>
         </DataTemplate>
 
         <DataTemplate x:Key="BreakTemplate">
-            <control:EventBreakControl Margin="5,0,5,15"/>
+            <control:EventBreakControl Margin="5,0,5,10"/>
         </DataTemplate>
 
         <DataTemplate x:Key="ListTemplate">
-            <Grid Margin="5,0,5,15">
+            <Grid Margin="5,0,5,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
@@ -295,7 +295,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="70" x:Name="FirstRow"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
