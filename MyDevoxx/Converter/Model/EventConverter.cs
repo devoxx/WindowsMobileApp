@@ -7,7 +7,17 @@ namespace MyDevoxx.Converter.Model
 {
     public class EventConverter
     {
-        public static List<Event> apply(Schedule schedule, string confId)
+        private static readonly Dictionary<string, int> timeOffsetDic = new Dictionary<string, int>
+        {
+            { "UK", 1 },
+            { "Morocco", 0 },
+            { "Belgium", 1 },
+            { "Poland", 2 },
+            { "France", 2 }
+        };
+
+
+        public static List<Event> apply(Schedule schedule, string confId, string country)
         {
             List<Event> events = new List<Event>();
             foreach (Slot s in schedule.slots)
@@ -58,15 +68,19 @@ namespace MyDevoxx.Converter.Model
                 e.day = s.day;
                 e.roomName = s.roomName;
                 e.roomId = s.roomId;
-                //e.fromTime = s.fromTime;
+
                 e.fromTimeMillis = s.fromTimeMillis;
-                //e.toTime = s.toTime;
                 e.toTimeMillis = s.toTimeMillis;
-                //e.fullTime = e.fromTime + " - " + e.toTime;              
+
+                int timeOffset;
+                if(!timeOffsetDic.TryGetValue(country, out timeOffset))
+                {
+                    timeOffset = 0;
+                }
 
                 DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                var StartDateTime = epoch.AddMilliseconds(s.fromTimeMillis).AddHours(1);
-                var EndDateTime = epoch.AddMilliseconds(s.toTimeMillis).AddHours(1);
+                var StartDateTime = epoch.AddMilliseconds(s.fromTimeMillis).AddHours(timeOffset);
+                var EndDateTime = epoch.AddMilliseconds(s.toTimeMillis).AddHours(timeOffset);
 
                 e.fromTime = StartDateTime.ToString("HH:mm");
                 e.toTime = EndDateTime.ToString("HH:mm");
