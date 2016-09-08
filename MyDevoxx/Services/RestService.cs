@@ -53,7 +53,7 @@ namespace MyDevoxx.Services
             string endpoint = (string)settings.Values["cfpEndpoint"];
             string confId = (string)settings.Values["conferenceId"];
             string country = (string)settings.Values["country"];
-            string url = endpoint + "/conferences" + "/" + confId + scheduleUrl + "/" + day;
+            string url = endpoint + "/conferences" + "/" + confId + scheduleUrl + "/" + day + "/";
             Schedule schedule = await fetch<Schedule>(url, "schedule_" + day + "_" + confId + ".json");
 
             return EventConverter.apply(schedule, confId, country);
