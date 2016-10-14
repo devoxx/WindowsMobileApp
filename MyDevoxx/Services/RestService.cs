@@ -132,7 +132,7 @@ namespace MyDevoxx.Services
 
             client.DefaultRequestHeaders.Remove("If-None-Match");
             eTag = await GetEtag(url);
-            if (eTag != null)
+            if (eTag != null && eTag.eTag != null)
             {
                 client.DefaultRequestHeaders.Add(new KeyValuePair<string, string>("If-None-Match", eTag.eTag));
             }
