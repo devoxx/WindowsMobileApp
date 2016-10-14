@@ -129,7 +129,11 @@ namespace MyDevoxx.Services
 
                     if (e.trackId != null)
                     {
-                        e.trackImage = cfpUrl + trackDic[e.trackId];
+                        String trackImage;
+                        if (trackDic.TryGetValue(e.trackId, out trackImage))
+                        {
+                            e.trackImage = cfpUrl + trackImage;
+                        }
                     }
                     if (starredEventsDic.ContainsKey(e.id))
                     {
